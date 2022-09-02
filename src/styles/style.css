@@ -81,3 +81,7 @@ ul {
     vertical-align: top;
     /* para organizar las imagenes */
 }
+
+li{
+  display: inline-block;  
+}

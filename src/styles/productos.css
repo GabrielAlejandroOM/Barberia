@@ -1,0 +1,145 @@
+* {
+    /*Resetear los margenes */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    min-height: 100%;
+    /*Con esto nuestro body ocupara el 100% como minimo*/
+    /*Si los elementos se hacen mas grandes, el mismo html se extiende*/
+
+}
+
+.main-container {
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 1px 2px 3px black;
+}
+
+
+/*Empezamos a aplicar el grid a nuestro html  */
+
+.header {
+    grid-area: header;
+    background-color: red;
+}
+
+.nav {
+    grid-area: navbar;
+    background-color: turquoise;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: pink;
+}
+
+.article {
+    grid-area: article;
+    background-color: orange;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: greenyellow;
+}
+
+.main{
+    grid-area: main;
+    background-color: crimson;
+}
+.main-container {
+    /*Ya con esta propiedad todos los hijos dentro del container tendran grid */
+    display: grid;
+    gap: 50px;
+    /*Para definir la separacion entre elementos */
+    grid-template-areas:
+        /*Empezar a definir un area para cada una de estas propiedades en la plantilla*/
+        "header"
+        "navbar"
+        "main"
+        "aside"
+        "article"
+        "footer ";
+    /* Empezamos a aplicar las areas que tiene nuestro contenedor, osea los hijos que establecimos en el html como navbar, header etc */
+
+    /*
+    Si quiero poner el aside sobre el header solo ocuparia, mover el area
+    cambiando el nombre de header por aside y listo
+*/
+}
+
+
+
+/*Uso de mediasquerys para establecer tamaños */
+
+@media (min-width:600px){
+/*Las mediaquerys sirven que cuando mi pantalla tenga mas de 600px 
+  el codigo dentro que es casi como una funcion se ejecute
+
+*/
+    .main-container{
+        background-color:whitesmoke;
+        grid-template-areas:none ;
+        grid-template: 
+        ". header" 10px /*Cuando ponemos un . dentro de nuestro template significa que estara vacio, en este caso la area*/
+        "navbar navbar" 10px /*Esto es solo para el alto */
+        "main aside"  10px
+        "article article" 10px
+        "footer footer" 110px 
+        /*Y usando un simple / ponemos el ancho */
+        /
+        10px 
+        10px 
+        10px 
+        10rem
+        100px
+        ; 
+        /* "header header header"
+        "navbar navbar "
+        "main aside aside" 
+        "article"
+        "footer"; */
+        /*Si pongo el area del aside a la par del main 
+         este cuando llegue a ejecturar la condicion de que la pantalla sea 
+         mas de 600 pixeles y active la mediaquery hara que el aside se ponga
+         junto al main*/
+
+
+
+    /*Ahora por ultimo falta acomodar el ancho de columnas y ancho de filas*/     
+        /* grid-template-columns: 500px auto;
+        grid-template-rows: 100px 50px auto 100px; */
+
+    /*Existe una forma mas elegante de hacer esto mas facilmente */
+   
+    }
+}
+
+
+@media(min-width:200px){
+   
+   .main-container{
+    background-color: blueviolet;
+    grid-template:
+    "header navbar" 200px 
+    "navbar"
+    "main"
+    "aside"
+    "article"
+    "footer"; 
+   }
+   
+    
+
+}
