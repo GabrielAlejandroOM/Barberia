@@ -19,7 +19,18 @@ img {
     min-width: 250px;
     min-height: 250px;
     width: 100%;
+    width: 650px;
 }
+
+@media(min-width:600px){
+    .img {
+        min-width: 250px;
+        min-height: 250px;
+        width: 100%;
+        width: 650px;
+    }
+}
+
 
 h1 {
     font-size: 3rem;
@@ -29,8 +40,15 @@ h1 {
     transition: 1s;
     transform: perspective();
     text-align: center;
+    text-decoration: wavy;
 
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
 
 h2 {
     align-items: center;
@@ -79,9 +97,16 @@ ul {
     width: 20%;
     margin-right: 15%;
     vertical-align: top;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     /* para organizar las imagenes */
 }
 
 li{
   display: inline-block;  
+  block-size: 4rem;
+  width: 9.2rem;
+  height: 20px;
+  text-align: end;
 }
